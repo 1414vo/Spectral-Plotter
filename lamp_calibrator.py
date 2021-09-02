@@ -18,7 +18,7 @@ def get_main_peaks(graph):
 
     # Get graph peaks
     lamp_len = len(graph)
-    peaks = list()
+    peaks = np.array([])
     for i in range(lamp_len):
         if i != 0 and i != lamp_len - 1:
             # Local maximum check
@@ -27,5 +27,5 @@ def get_main_peaks(graph):
             # Check if local maximum is not noise (edit if there are more lines to fit)
             cond3 = graph[i] > 3000
             if (cond1 != cond2) and cond3:
-                peaks.append(i)
+                peaks = np.append(peaks, i) 
     return peaks
